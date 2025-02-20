@@ -1,0 +1,328 @@
+/* **************************** */
+/* **** HEADER LEFT SECTION ** */
+/* **************************** */
+.amazon_header {
+  background-color: #111;
+  padding-top: 12px;
+  color: orange;
+}
+.amazon_header_left_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.us_flag {
+  width: 30px;
+}
+.amazon_logo_container img {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.location {
+  margin-right: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.location_icon {
+  width: 20px;
+  margin-right: 5px;
+  padding-top: 12px;
+}
+
+.deliver_to {
+  font-size: 12px;
+  color: lightgray;
+}
+
+.ethio {
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.search_container {
+  width: 90%;
+  margin-inline: 10px;
+  display: flex;
+}
+.search_bar {
+  flex: 1;
+  font-size: 16px;
+  height: 38px;
+  padding-left: 15px;
+  border: none;
+}
+.search_button {
+  background-color: rgb(254, 189, 105);
+  border: none;
+  width: 45px;
+  height: 38px;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.search_icon {
+  height: 30px;
+
+  margin-left: 2px;
+  margin-top: 3px;
+}
+.category_select {
+  padding: 10px;
+  border-right-color: #bdaeae;
+  background-color: #f3f3f3;
+  color: #111;
+  border: none;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.flag_container {
+  display: none;
+}
+
+.amazon_header_right_section {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+.cart_icon {
+  width: 50px;
+}
+.orders_link {
+  color: white;
+  text-decoration: none;
+
+  font-size: 16px;
+}
+.cart_link {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.cart_text {
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+}
+.cart_quantity {
+  color: rgb(240, 136, 4);
+  font-size: 16px;
+  font-weight: 700;
+
+  position: absolute;
+  top: 4px;
+  left: 18px;
+
+  width: 26px;
+  text-align: center;
+}
+.language_select {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.account {
+  margin-right: 20px;
+  text-align: center;
+}
+
+.account p {
+  margin: 0;
+}
+.account a {
+  list-style: none;
+  color: white;
+  text-decoration: none;
+}
+
+.account_select {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+ 
+@media (min-width: 575px) {
+  .amazon_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 10px;
+  }
+  .search_container {
+    margin-inline: 10px;
+    display: flex;
+  }
+
+  .search_bar {
+    width: 0;
+    font-size: 16px;
+    height: 38px;
+    padding-left: 15px;
+    border: none;
+  }
+  .flag_container {
+    display: block;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  .amazon_header_middle_section {
+    display: flex;
+    flex: 1;
+  }
+  .lower_container ul li:not(:first-child) {
+    display: none;
+  } 
+}
+
+.search_container:focus-within {
+  border: 2px solid #febd69; /* Border color when focused */
+  border-bottom-right-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+}
+.search_bar:focus,
+.category_select:focus {
+  outline: none;
+}
+
+.amazon_logo_container img:hover,
+.location:hover,
+.flag_container:hover,
+.account:hover,
+.orders_link:hover,
+.cart_icon:hover,
+.lower_container li:hover {
+  opacity: 0.7;
+  outline: 1px solid white; /* Keeps size the same */
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.lower_container ul {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #131a22;
+  color: white;
+  /* position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  z-index: 1000; */
+  
+  gap: 20px;
+  list-style: none;
+  cursor: pointer;
+}
+.humberger_menu {
+  margin-right: 4px;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+/* 
+.amazon_logo {
+  width: 100px;
+  margin-top: 5px;
+ 
+}
+.amazon_mobile_logo {
+  display: none;
+}
+.amazon_header_left_section {
+  width: 180px;
+ 
+}
+
+@media (max-width: 575px) {
+  .amazon_logo {
+    display: none;
+  }
+  .amazon_mobile_logo {
+    display: block;
+    height: 35px;
+    margin-top: 5px;
+  }
+} */
+/* **************************** */
+/* **** HEADER MIDDLE SECTION ** */
+/* **************************** */
+/* .amazon_header_middle_section {
+  flex: 1;
+  max-width: 850px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+}
+.search_bar {
+  flex: 1;
+  width: 0;
+  font-size: 16px;
+  height: 38px;
+  padding-left: 15px;
+  border: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.search_button {
+  background-color: rgb(254, 189, 105);
+  border: none;
+  width: 45px;
+  height: 38px;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.search_icon {
+  height: 30px;
+
+  margin-left: 2px;
+  margin-top: 3px;
+}
+.amazon_header_right_section {
+  width: 180px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+} */
+/* .cart_icon {
+
+  width: 50px;
+}
+.orders_link {
+  color: white;
+  text-decoration: none;
+
+  font-size: 13px;
+}
+.cart_link {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.cart_text {
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+}
+.cart_quantity {
+  color: rgb(240, 136, 4);
+  font-size: 16px;
+  font-weight: 700;
+
+  position: absolute;
+  top: 4px;
+  left: 18px;
+  
+  width: 26px;
+  text-align: center;
+} */
