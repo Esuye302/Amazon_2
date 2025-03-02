@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <div className={styles.amazon_header}>
             <div class={styles.amazon_header_left_section}>
-                <a href="amazon.html" className="header-link">
+                <a href="#" className={styles.header_link}>
                     <img class={styles.amazon_logo} src={amazon_logo} />
                     <img class={styles.amazon_mobile_logo} src={amazon_mobile_logo} />
                 </a>
