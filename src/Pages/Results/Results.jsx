@@ -13,16 +13,18 @@ const Results = () => {
     // console.log('result', result)
     useEffect(() => {
         setLoading(true)
-        axios.get(`${baseUrl}/products/category/${CategoryName}`)
-            .then((res) => {
-                setLoading(false)
-                setResult(res.data);
-                console.log('from res', res);
-            })
-            .catch((err) => {
-                console.error('Error fetching data:', err);
-                setLoading(false);
-            });
+        axios
+          .get(`${baseUrl}/products/category/${CategoryName}`)
+          //https://fakestoreapi.com/products/category/electronics
+          .then((res) => {
+            setResult(res.data);
+            setLoading(false);
+            // console.log('from res', res);
+          })
+          .catch((err) => {
+            console.error("Error fetching data:", err);
+            setLoading(false);
+          });
     }, [CategoryName]);
 
     return (

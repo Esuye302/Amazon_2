@@ -45,7 +45,7 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
- 
+
   margin-top: -20%;
   gap: 20px; /* Space between items */
   place-items: center;

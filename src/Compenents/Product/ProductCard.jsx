@@ -5,15 +5,7 @@ import styles from "./product.module.css";
 import { Link } from "react-router-dom";
 import { DataContext } from "../DataProvider/DataProvider";
 import { Types } from "../../Utility/actionType";
-const ProductCard = ({
-  price,
-  id,
-  rating,
-  title,
-  image,
-  description,
-  flex,
-  showbtn
+const ProductCard = ({price,id,rating,title,image,description,flex,showbtn
 }) => {
 
   const [state, dispatch] = useContext(DataContext);
@@ -27,9 +19,7 @@ const ProductCard = ({
   }
 
   return (
-    <div
-      className={`${styles.card_container} ${flex ? styles.product_fixed : ""}`}
-    >
+    <div className={`${styles.card_container} ${flex ? styles.product_fixed : ""}`} >
       <Link to={`/products/${id}`}>
         <img src={image} alt="" />
       </Link>

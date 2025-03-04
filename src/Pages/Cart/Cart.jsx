@@ -7,9 +7,8 @@ import styles  from "./cart.module.css";
 import { Link } from "react-router-dom";
 const Cart = () => {
   const [{ basket }, dispatch] = useContext(DataContext);
-    //  console.log('basket',basket)
-  const total = basket?.reduce((amount, item) => amount + item.price, 0);
-
+     console.log('basket',basket)
+  const total = basket?.reduce((amount, item) => amount+ item.price*item.amount, 0);
   return (
     <LayOut>
       <section className={styles.container}>
