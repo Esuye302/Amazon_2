@@ -10,7 +10,8 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../DataProvider/DataProvider";
 import { useContext } from "react";
 const Head = () => {
-  const [{basket},dispatch] = useContext(DataContext);
+  const [{ basket }, dispatch] = useContext(DataContext);
+  const total = basket?.reduce((amount, item) => amount + item.amount, 0);
   return (
     <section className={styles.fixed_header}>
       <div className={styles.amazon_header}>
@@ -20,7 +21,6 @@ const Head = () => {
               <img src={amazon_logo} alt="amazon_logo" />
             </a>
           </div>
- 
 
           <div className={styles.location}>
             <span>
@@ -71,7 +71,7 @@ const Head = () => {
 
           <Link className={styles.cart_link} to="/cart">
             <img className={styles.cart_icon} src={shoppingCart} />
-            <div className={styles.cart_quantity}>{basket.length}</div>
+            <div className={styles.cart_quantity}>{total}</div>
             <div className={styles.cart_text}>Cart</div>
           </Link>
         </div>
