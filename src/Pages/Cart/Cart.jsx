@@ -50,10 +50,12 @@ const Cart = () => {
                     />
 
                     <div className={styles.cart_btn}>
+                      {/* 🔼 */}
                       <button onClick={() => increment(item)}>
                         <HiArrowCircleUp size={24} />
                       </button>
                       {item.amount}
+                      {/* 🔽 */}
                       <button onClick={() => decrement(item.id)}>
                         <HiArrowCircleDown size={24} />
                       </button>
@@ -75,7 +77,7 @@ const Cart = () => {
               <input type="checkbox" />
               <small>This order Contains a gift </small>
             </span>
-            <Link to="./Payment">continue to checkout</Link>
+            <Link to="/Payment">continue to checkout</Link>
           </div>
         )}
       </section>

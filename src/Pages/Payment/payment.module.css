@@ -1,0 +1,60 @@
+
+.payment_header{
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  background-color: rgb(234, 237, 237);
+}
+.payment{
+  padding: 30px;
+}
+.flex{
+  display: flex;
+  gap: 20px;
+  padding: 30px;
+}
+.flex img{
+  width: 80px !important;
+}
+.flex h3{
+  min-width: 300px;
+}
+
+.flex div{
+  height: auto !important;
+}
+.payment_card_container{
+  min-width: 350px;
+  width: 100%;
+} 
+
+.paymnet_details{
+
+}
+
+
+.paymnet_price{
+  padding: 20px;
+}
+.paymnet_price > div{
+  display: flex;
+  font-size: 15px;
+  gap: 10px;
+}
+.paymnet_details button{
+  margin-top: 15px;
+  width: 100%;
+  border: none;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+.paymnet_details button:hover{
+  background-color: var(--primary-shade);
+}
+@media screen and (max-width:768px) {
+  .flex{
+    flex-direction: column;
+  }
+}

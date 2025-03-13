@@ -39,7 +39,7 @@ const Results = () => {
                     <div className={styles.product_container}>
                         {result?.map((product) => (
 
-                            <ProductCard key={product.id} {...product} showbtn={false}/>
+                            <ProductCard key={product.id} {...product} showbtn={true}/>
 
                         ))}
                     </div>

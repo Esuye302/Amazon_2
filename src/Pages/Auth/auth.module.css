@@ -1,0 +1,83 @@
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Login Section */
+.login {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.login_container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+.login_container p{
+  font-size: 14px;
+}
+.login img {
+  margin: 30px auto;
+  width: 150px;
+}
+
+.login_container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+form label {
+  font-weight: 600;
+  color: #555;
+}
+
+form input {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form input:focus {
+  outline: 2px solid skyblue;
+}
+.signup_btn{
+   padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+.signin_btn {
+  padding: 12px;
+  background-color: #ff9900;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+.login .signin_btn:hover{
+  background-color: var(--primary-shade);
+}
+.login .signup_btn:hover{
+  background-color: lightgray;
+}

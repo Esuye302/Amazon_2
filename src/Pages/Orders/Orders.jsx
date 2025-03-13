@@ -1,80 +1,75 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import LayOut from "../../Compenents/LayOut/LayOut";
-import { useReducer } from "react";
+import { DataContext } from "../../Compenents/DataProvider/DataProvider";
+import { db } from "../../Utility/fireBase";
+import {
+  collection,
+  query,
+  orderBy,
+  onSnapshot,
+  doc,
+} from "firebase/firestore";
+import styles from "./order.module.css";
+import ProductCard from "../../Compenents/Product/ProductCard";
 
 const Orders = () => {
-  const intialState = {
-    count: 0,
-  };
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case "ADD":
-        return {
-          count: state.count + 1,
-        };
-      case "DECREMENT":
-        return {
-          count: state.count - 1,
-        };
-      default:
-        return state;
-    }
-  };
+  const [{ user }] = useContext(DataContext);
+  const [orders, setOrders] = useState([]);
 
-  const [state, dispatch] = useReducer(reducer, intialState);
+  useEffect(() => {
+    if (!user) return; // If no user is logged in, stop execution
+
+    // 1️⃣ Reference to the user's `orders` collection inside Firestore
+    const ordersCollectionRef = collection(db, "users", user.uid, "orders");
+
+    // 2️⃣ Create a query to get orders sorted by "created" field in descending order
+    const ordersQuery = query(ordersCollectionRef, orderBy("created", "desc"));
+
+    // 3️⃣ Listen for real-time updates on the orders collection
+    const unsubscribe = onSnapshot(ordersQuery, (snapshot) => {
+      // 4️⃣ Map over each document and extract its data
+      const fetchedOrders = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        data: doc.data(),
+      }));
+
+      // 5️⃣ Store the orders in the state
+      setOrders(fetchedOrders);
+    });
+
+    // 6️⃣ Cleanup function: Unsubscribe from Firestore when component unmounts
+    return () => unsubscribe();
+  }, [user]); // Run this effect whenever `user` changes
 
   return (
     <LayOut>
-      <div style={{ height: "200vh", padding: "20px" }}>
-        <h2>Scroll Down to See the Difference</h2>
-
-        {/* Sticky Container */}
-        <div
-          style={{
-            background: "lightblue",
-            width: "300px",
-            height: "400px",
-            overflowY: "auto",
-            marginBottom: "50px",
-            border: "2px solid blue",
-          }}
-        >
-          <div
-            style={{
-              position: "sticky",
-              top: "4px",
-              background: "pink",
-              padding: "10px",
-              borderBottom: "2px solid black",
-            }}
-          >
-            Sticky Header
+      <section>
+        <div className={styles.container}>
+          <div className={styles.orders_container}>
+            <h2>Your orders</h2>
+            {orders?.length==0&&(
+              <div style={{padding:'20px'}}>You Don't have order Yet</div>
+            )}
+            <div>
+            {
+              orders?.map((eachOrder,i)=>{
+                return (
+                  <div key={i}>
+                    <hr />
+                    <p>Order Id: {eachOrder.id}</p>
+                    {
+                      eachOrder?.data?.basket?.map((order)=>{
+                       return <ProductCard {...order} flex={true}/>
+                      })
+                    }
+                  </div>
+                )
+              })
+            }
+            </div>
           </div>
-          <p>Scroll inside this box ⬇️</p>
-          <p>Content 1</p>
-          <p>Content 2</p>
-          <p>Content 3</p>
-          <p>Content 4</p>
-          <p>Content 5</p>
         </div>
-
-        {/* Fixed Box */}
-        <div
-          style={{
-            position: "fixed",
-            top: "20px",
-            right: "20px",
-            background: "red",
-            color: "white",
-            padding: "10px",
-          }}
-        >
-          Fixed Box (Always here)
-        </div>
-
-        <p>Keep scrolling the page ⬇️ to see how the fixed box stays.</p>
-      </div>
-      
+      </section>
     </LayOut>
   );
 };

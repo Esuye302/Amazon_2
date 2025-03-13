@@ -8,10 +8,7 @@ const CarouselEffect = () => {
     <div>
       <Carousel
         className={styles.carousel}
-        showArrows={true}
         infiniteLoop={true}
-        showThumbs={false}
-        showStatus={false}
         autoPlay={true}
         interval={2000}
         transitionTime={1000}

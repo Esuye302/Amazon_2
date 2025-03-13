@@ -9,8 +9,10 @@ import LowerContainer from "./LowerContainer";
 import { Link } from "react-router-dom";
 import { DataContext } from "../DataProvider/DataProvider";
 import { useContext } from "react";
+import { auth } from "../../Utility/fireBase";
 const Head = () => {
-  const [{ basket }, dispatch] = useContext(DataContext);
+  const [{ basket,user }, dispatch] = useContext(DataContext);
+  // console.log("user", user?.email);
   const total = basket?.reduce((amount, item) => amount + item.amount, 0);
   return (
     <section className={styles.fixed_header}>
@@ -57,11 +59,27 @@ const Head = () => {
             </select>
           </div>
           <div className={styles.account}>
-            <Link to="/SignUp">
-              <p>Hello, Sign in</p>
-              <select className={styles.account_select}>
-                <option>Account & Lists</option>
-              </select>
+            <Link to={!user && "/auth"}>
+              <div>
+                {user ? (
+                  <>
+                    <p>
+                      Hello,{" "}
+                      {user.email.trim().split("@")[0].replace(/[0-9]/g, "")}
+                    </p>
+                   <p onClick={()=>auth.signOut()}>sign Out</p>
+                  </>
+                ) : (
+                  <>
+                  
+                  <p>Hello, sign in</p>
+                   <select className={styles.account_select}>
+                      <option>Account & Lists</option>
+                    </select>
+                  </>
+                  
+                )}
+              </div>
             </Link>
           </div>
           <Link className={styles.orders_link} to="/orders">
